@@ -5,6 +5,8 @@ I created an app that allows users to schedule their workday and save the data t
 
 Some key features include different colours for time-blocks that are in the past, present and future, and a message that appears and fades alerting the user that their data has been saved.
 
+I chose to use my own custom colours for past, present and future.
+
 Some challenges included finding a way to create individual events for each button click, which I succeeded in though an area of development could be in ensuring the data only saves the array element that is pushed on click.
 
 
