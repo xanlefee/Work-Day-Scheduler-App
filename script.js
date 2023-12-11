@@ -240,9 +240,6 @@ let scheduledata = [];
 scheduledata = JSON.parse(localStorage.getItem("data")) || [];
 
 
-console.log(scheduledata[0].data[11]);
-
-
 $('#9').val(scheduledata[0].data[9]);
 $('#10').val(scheduledata[0].data[10]);
 $('#11').val(scheduledata[0].data[11]);
