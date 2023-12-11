@@ -24,15 +24,12 @@
   </header>
 
  
-
- 
- 
       <div class="container">
 
     <div class="time-block row past" id="time-block-9" data-hour="09">
       <div class="hour col-sm-1">9 AM</div>
       <textarea name="" id="9" class="col-sm-10"></textarea>
-      <button type="submit" class="saveBtn btn col-md-1">
+      <button  id="button-9" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -42,7 +39,7 @@
     <div class="time-block row past" id="time-block-10" data-hour="10">
       <div class="hour col-sm-1">10 AM</div>
       <textarea name="" id="10" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-10" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -50,7 +47,7 @@
     <div class="time-block row past" id="time-block-11" data-hour="11">
       <div class="hour col-sm-1">11 AM</div>
       <textarea name="" id="11" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-11" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -59,7 +56,7 @@
     <div class="time-block row past" id="time-block-12" data-hour="12">
       <div class="hour col-sm-1">12 PM</div>
       <textarea name="" id="12" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-12" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -67,7 +64,7 @@
     <div class="time-block row past" id="time-block-13" data-hour="13">
       <div class="hour col-sm-1">1 PM</div>
       <textarea name="" id="13" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-13" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -75,7 +72,7 @@
     <div class="time-block row past" id="time-block-14" data-hour="14">
       <div class="hour col-sm-1">2 PM</div>
       <textarea name="" id="14" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-14" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -84,7 +81,7 @@
     <div class="time-block row past" id="time-block-15" data-hour="15">
       <div class="hour col-sm-1">3 PM</div>
       <textarea name="" id="15" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-15" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -93,7 +90,7 @@
     <div class="time-block row past" id="time-block-16" data-hour="16">
       <div class="hour col-sm-1">4 PM</div>
       <textarea name="" id="16" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-16" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -102,7 +99,7 @@
     <div class="time-block row past" id="time-block-17" data-hour="17">
       <div class="hour col-sm-1">5 PM</div>
       <textarea name="" id="17" class="col-sm-10"></textarea>
-      <button class="saveBtn btn col-sm-1">
+      <button id="button-17" class="saveBtn btn col-sm-1">
         <i class="fas fa-save"></i>
       </button>
     </div>
@@ -115,263 +112,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-  <script>
-
-
-//need to fix this
-let savedMessage = document.getElementsByClassName('.savedmessage');
-savedMessage.style = "block";
-    
-
-
-    // today's date
-
-    const today = dayjs().format('DD-MM-YYYY');
-
-    // local storage data object 
-
-
-    //colour-change function
-
-    let currenttime = dayjs().format('H'); //0-23 
-
-    $('.time-block').each(function () {
-
-      $(this) //on each loop this would be individual time block elelemt
-
-      const elementHour = $(this).attr('data-hour')
-
-      if (elementHour < currenttime) {
-
-
-        $(this).css({ 'background-color': '#8a3a8a', color: '#d9e9e9' });
-        
-
-      }
-
-      else if (elementHour > currenttime) {
-        $(this).css({ 'background-color': '#6a9a1a', color: '#d9e9e9' });
-      
-      }
-
-
-    });
-
-    localStorage.getItem('data');
-  
-
-
-    // display current day in fancy way
-
-
-    const todayfancy = dayjs().format('dddd D MMMM YYYY');
-
-    $("#currentDay").text(todayfancy);
-
-
-    // local storage data object
-
-    const localstoragedata = [{
-      date: today,
-      data: {
-        09: 'text at 9:00',
-        10: 'text at 10:00',
-        11: 'text at 11:00',
-        12: 'text at 12:00',
-        13: 'text at 13:00',
-        14: 'text at 14:00',
-        15: 'text at 15:00',
-        16: 'text at 16:00',
-        17: 'text at 17:00',
-      }
-    }];
-
-
-
-    // 
-
-    const todaydataindex = localstoragedata.findIndex(function (element) {
-
-      return element.date === today;
-
-
-    });
-
-    // $('textarea').text(localstoragedata[0].date);
-
-
-    $(".saveBtn").on("click", function () {
-
-      //console.log('clicky');
-
-      //make a variable to storage uer input
-
-      //let userText =  document.getElementById("9").value;
-
-      const todayData = localstoragedata[todaydataindex];
-
-      // show data of each time
-      //for (let i = 9; i < 18; i++) {
-
-        // need to fix this so it prints the data element to the console in correct box. -try changing date and data around
-
-       
-        // localStorage.setItem('data', localstoragedata);
-
-
-        let userText9 = $('#9').val();
-        let userText10 = $('#10').val();
-        let userText11 = $('#11').val();
-        let userText12 = $('#12').val();
-        let userText13 = $('#13').val();
-        let userText14 = $('#14').val();
-        let userText15 = $('#15').val();
-        let userText16 = $('#16').val();
-        let userText17 = $('#17').val();
-
-        //console.log(userText);
-
-
-        todayData.data[9] = userText9;
-        todayData.data[10] = userText10;
-        todayData.data[11] = userText11;
-        todayData.data[12] = userText12;
-        todayData.data[13] = userText13;
-        todayData.data[14] = userText14;
-        todayData.data[15] = userText15;
-        todayData.data[16] = userText16;
-        todayData.data[17] = userText17;
-        //storing the data input in a variable
-
-        let data9am = todayData.data[9];
-        let data10am = todayData.data[10];
-        let data11am = todayData.data[11];
-        let data12pm = todayData.data[12];
-        let data1pm = todayData.data[13];
-        let data2pm = todayData.data[14];
-        let data3pm = todayData.data[15];
-        let data4pm = todayData.data[16];
-        let data5pm = todayData.data[17];
-     
-   // now need to change the data in array 
-
-      // saveBtn click listener 
-    
-        // Get nearby values of the description in JQuery
-        localStorage.setItem("data", JSON.stringify(localstoragedata));
-    
-      
-
-           
-        // setting the input to the text value
-        $('#9').val(data9am);
-        $('#10').val(data10am);
-        $('#11').val(data11am);
-        $('#12').val(data12pm);
-        $('#13').val(data1pm);
-        $('#14').val(data2pm);
-        $('#15').val(data3pm);
-        $('#16').val(data4pm);
-        $('#17').val(data5pm);
-
-     
-
-     
-      
-        console.log(localstoragedata);
-        console.log(todayData);
-        /// localstoragedata.push(data9am);
-       // console.log(userText);
-        console.log(data9am);
-        console.log(data10am);
-    //  }
-  
-
-    //localStorage.getItem('data');
-
-
-
-    /*savedMessage.className = 'show';
-            setTimeout(() => {
-                message.className = 'hide';
-            }, 2000);
-
-            */
-    
-
-
-
-      /* if (todaydataindex < 0) {
- 
-         const todaydata = localstoragedata[todaydataindex];
- 
-         for (let i = 9; i < 18; i++) {
-           $('#time-block-' + i).val(todaydata.data[i]);
-           localStorage.setItem('data', localstoragedata);
- 
-         }
- 
-       }
-       else {
-         todaydata = {
-           date: '10-12-2023',
-           data: {}
-         }
- 
-       }
-       */
-    });
-
-let scheduledata = [];
-
- scheduledata = JSON.parse(localStorage.getItem("data")) || [];
-   console.log(scheduledata[0].data[11]);
-   $('#9').val(scheduledata[0].data[9]);
-        $('#10').val(scheduledata[0].data[10]);
-        $('#11').val(scheduledata[0].data[11]);
-        $('#12').val(scheduledata[0].data[12]);
-        $('#13').val(scheduledata[0].data[13]);
-        $('#14').val(scheduledata[0].data[14]);
-        $('#15').val(scheduledata[0].data[15]);
-        $('#16').val(scheduledata[0].data[16]);
-        $('#17').val(scheduledata[0].data[17]);
-
-   
-
-
-
-    // clickevent listener for textarea 
-
-
-    // save data to local storage
-    //add click event listener
-    //in click event listener : get the value of the text area that correspond
-    //with user click
-
-    //if todaydataindex exist
-    // const todaydata = localstoragedata[todaydataindex];
-    // todaydata.[time = value of the textarea]
-    // localstoragedata[todaydataindex] = todaydata
-    // localStorage.setItem('data', localstoragedata)
-
-    //else {
-    //  todaydata = {
-    //    date: '10-12-2023'
-    //  data: {}
-    //  }
-    // todaydata[time] = 'INSERT VALUE OF TEXT AREA (ID)'
-    // localstoragedata [todaydataindex]=todayData;
-    // localStorage.setItem('data', localsstoragedata)
-
-
-
-    //ignore this beloq
-
-    //$('#time-block-9').val(data9am);
-    //  document.getElementById('time-block-9').val(data9am);
-    // const todaydata = localstoragedata[];
-
-  </script>
+  <script src= "/script.js"></script>
 </body>
+
 
 </html>

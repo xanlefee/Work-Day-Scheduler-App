@@ -10,7 +10,7 @@ textarea {
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+  padding: 1cqi;
 }
 
 header {
@@ -33,7 +33,7 @@ header {
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  height: 100px;
   border-top: 10px solid white;
 }
 
@@ -72,5 +72,7 @@ header {
 }
 
 .savedmessage {
-  display: none;
+  
+  visibility: hidden;
+  color: green;
 }
