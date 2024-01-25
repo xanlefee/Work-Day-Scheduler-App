@@ -15,6 +15,10 @@ const today = dayjs().format('DD-MM-YYYY');
 //colour-change function
 
 let currenttime = dayjs().format('H'); //0-23 
+let currentFancyTime = dayjs().format("h:mm A");
+
+
+
 
 $('.time-block').each(function () {
 
@@ -25,17 +29,25 @@ $('.time-block').each(function () {
     if (elementHour < currenttime) {
 
 
-        $(this).css({ 'background-color': '#8a3a8a', color: '#d9e9e9' });
-
+        $(this).addClass('past');
 
     }
 
-    else if (elementHour > currenttime) {
-        $(this).css({ 'background-color': '#6a9a1a', color: '#d9e9e9' });
+    
 
+    if (elementHour > currenttime) {
+        $(this).addClass('future');
+
+    }
+
+    if (elementHour === currenttime) {
+        $(this).addClass('present');
     }
 
 });
+
+
+
 
 //localStorage.getItem('data');
 
@@ -46,6 +58,8 @@ $('.time-block').each(function () {
 const todayfancy = dayjs().format('dddd D MMMM YYYY');
 
 $("#currentDay").text(todayfancy);
+
+$("#currentTime").text(currentFancyTime);
 
 
 // local storage data object
@@ -66,6 +80,7 @@ const localstoragedata = [{
 }];
 
 
+
 //  creates index of localstoragedata, sets the date as today
 
 const todaydataindex = localstoragedata.findIndex(function (element) {
@@ -82,6 +97,8 @@ const saveButton = $(".saveBtn");
 saveButton.each(function () {
     $(this).on("click", function (event) {
 
+       event.preventDefault();
+
         let clickedButton = event.target;
         let whichButton = $(clickedButton).attr("id");
 
@@ -90,6 +107,8 @@ saveButton.each(function () {
         const todayData = localstoragedata[todaydataindex];
 
         // sets the user input to the value of the corresponding text box
+
+
 
 
         let userText9 = $('#9').val();
@@ -105,6 +124,10 @@ saveButton.each(function () {
 
         // then stores the user text in the array
 
+   
+
+        
+
         todayData.data[9] = userText9;
         todayData.data[10] = userText10;
         todayData.data[11] = userText11;
@@ -115,122 +138,39 @@ saveButton.each(function () {
         todayData.data[16] = userText16;
         todayData.data[17] = userText17;
 
+        
         // stores this new value in a variable
 
-        let data9am = todayData.data[9];
-        let data10am = todayData.data[10];
-        let data11am = todayData.data[11];
-        let data12pm = todayData.data[12];
-        let data1pm = todayData.data[13];
-        let data2pm = todayData.data[14];
-        let data3pm = todayData.data[15];
-        let data4pm = todayData.data[16];
-        let data5pm = todayData.data[17];
-
+    
 
         // checks if button clicked corresponds with the textarea Id, if so, logs the data
         // and brings up message saying it's been logged
 
 
+        // 
 
-        if (whichButton === "button-9" && $("#9")) {
-            console.log("9");
+        for (i = 0; i < 18; i++) {
 
-            $('#9').val(data9am);
+            
+            
+        if (whichButton === "button-"+ i) {
+            console.log("Hell yeah");
+
+            $('#'+ i).val(todayData.data[i]);
             localStorage.setItem("data", JSON.stringify(localstoragedata));
             $(".savedmessage").css({ "visibility": "visible" });
             setTimeout(() => {
                 $(".savedmessage").css({ "visibility": "hidden" });
             }, 3000)
+
+          
+           
+        }
         }
 
-        else if (whichButton === "button-10" && $("#10")) {
-            console.log("10");
-            $('#10').val(data10am);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-
-        }
-
-        else if (whichButton === "button-11" && $("#11")) {
-            console.log("11");
-            $('#11').val(data11am);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-
-        }
-
-        else if (whichButton === "button-12" && $("#12")) {
-            console.log("12");
-            $('#12').val(data12pm);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-        }
-
-        else if (whichButton === "button-13" && $("#13")) {
-            console.log("13");
-            $('#13').val(data1pm);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-
-        }
-
-        else if (whichButton === "button-14" && $("#14")) {
-            console.log("14");
-            $('#14').val(data2pm);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-
-        }
-
-        else if (whichButton === "button-15" && $("#15")) {
-            console.log("15");
-            $('#15').val(data3pm);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-
-        }
-
-        else if (whichButton === "button-16" && $("#16")) {
-            console.log("16");
-            $('#16').val(data4pm);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-
-        }
-
-        else if (whichButton === "button-17" && $("#17")) {
-            console.log("17");
-            $('#17').val(data5pm);
-            localStorage.setItem("data", JSON.stringify(localstoragedata));
-            $(".savedmessage").css({ "visibility": "visible" });
-            setTimeout(() => {
-                $(".savedmessage").css({ "visibility": "hidden" });
-            }, 3000)
-        };
 
     })
+   
 });
 
 
@@ -239,15 +179,19 @@ let scheduledata = [];
 
 scheduledata = JSON.parse(localStorage.getItem("data")) || [];
 
-
-$('#9').val(scheduledata[0].data[9]);
-$('#10').val(scheduledata[0].data[10]);
-$('#11').val(scheduledata[0].data[11]);
-$('#12').val(scheduledata[0].data[12]);
-$('#13').val(scheduledata[0].data[13]);
-$('#14').val(scheduledata[0].data[14]);
-$('#15').val(scheduledata[0].data[15]);
-$('#16').val(scheduledata[0].data[16]);
-$('#17').val(scheduledata[0].data[17]);
+for (i = 8; i < 18; i++) {
+    $('#'+ i).val(scheduledata[0].data[i]);
+}
 
 
+
+
+
+$("#clear").click(function(event) {
+
+   event.preventDefault();
+  
+localStorage.clear();
+location.reload();
+
+});
