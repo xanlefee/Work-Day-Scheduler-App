@@ -154,7 +154,7 @@ saveButton.each(function () {
             
             
         if (whichButton === "button-"+ i) {
-            console.log("Hell yeah");
+           
 
             $('#'+ i).val(todayData.data[i]);
             localStorage.setItem("data", JSON.stringify(localstoragedata));
@@ -192,6 +192,11 @@ $("#clear").click(function(event) {
    event.preventDefault();
   
 localStorage.clear();
-location.reload();
+//location.reload();
+
+for (i = 9; i < 18; i++) {
+    $('#' + i).val("");
+}
+
 
 });
