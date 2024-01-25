@@ -2,6 +2,19 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: #b1e1fb;
+}
+div.hour{
+  color: #c47cfb;
+  background-color: rgb(37, 243, 243);
+  background-repeat: no-repeat;
+  background-size: 100%;
+align-items: center;
+ border: none;
+ border-top-left-radius: 15px;
+ border-bottom-left-radius: 15px;
+
+
 }
 
 textarea {
@@ -9,61 +22,94 @@ textarea {
   border: none;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
-  padding: 1cqi;
+  border-left: 2px solid rgb(18, 143, 233);
+  border-right: 2px solid rgb(131, 71, 190);
+  padding: 1px;
+  font-family: 'Architects Daughter', cursive;
+  font-size:x-large;
+
+}
+
+.savedmessage {
+  font-family: 'Indie Flower', cursive;
 }
 
 header {
   text-align: center;
+  background-image: url(./images/paper-cover-1-04.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
   background-color: transparent;
   color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
-  padding: 60px;
+  border-bottom: 10px solid rgb(118, 216, 255);
+  padding: 5.7px;
 }
 
 .description {
   white-space: pre-wrap;
 }
 
+img {
+ 
+  border: none;
+ 
+}
+
 .time-block {
   text-align: center;
-  border-radius: 25px;
+  border: none;
+  border-radius: 14px;
+ 
+  
 }
 
 .row {
-  white-space: pre-wrap;
+  
   height: 100px;
-  border-top: 10px solid white;
+  border: #6391fd;
+  margin: 5px;
+ 
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  font-family: 'Caprasimo', serif;
+  text-align: center;
+  font-size: x-large;
 }
 
 .past {
-  background-color: #bae2fa;
-  color: white;
+  background-color: #c5ade6;
+  color: rgb(255, 179, 179);
+
+  
+
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #f9f7b2;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #b0f9b0;
   color: white;
 }
 
 .saveBtn {
-  border-left: 1px solid black;
+  
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+ color: white;
+ background-position: 10%;
+  background-image: url(./images/scheduler-motif-07.png);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-color: #c47cfb;
 }
 
 .saveBtn i:hover {
@@ -75,4 +121,30 @@ header {
   
   visibility: hidden;
   color: green;
+}
+
+h1, h2 {
+  font-family: 'Caprasimo', serif;
+}
+
+h3, h4, p, h5, h6, h7, h3{
+
+font-family: 'Trocchi', serif;
+}
+
+#clear {
+  background-color: rgb(181, 237, 154);
+  
+border: none;
+  font-family: 'Trocchi', serif;
+  text-align: center;
+  border-radius: 15px;
+  width: 20%;
+  align-self: center;
+ 
+
+}
+
+footer {
+  text-align: center;
 }
