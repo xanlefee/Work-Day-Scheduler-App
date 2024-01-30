@@ -36,7 +36,7 @@ textarea {
 
 header {
   text-align: center;
-  background-image: url(./images/paper-cover-1-04.png);
+  background-image: url(../images/paper-cover-1-04.png);
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: transparent;
@@ -106,7 +106,7 @@ img {
   border-bottom-left-radius: 0;
  color: white;
  background-position: 10%;
-  background-image: url(./images/scheduler-motif-07.png);
+  background-image: url(../images/scheduler-motif-07.png);
   background-repeat: no-repeat;
   background-size: 90%;
   background-color: #c47cfb;
