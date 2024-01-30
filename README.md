@@ -15,7 +15,7 @@ https://xanlefee.github.io/Work-Day-Scheduler-App/
 
 
 
-<img src="images/Schedule-app-gif.gif" width="800" />
+<img src="assets/images/Scheduler.png" width="800" />
 
 
 
